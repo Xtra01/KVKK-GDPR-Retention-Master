@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutDashboard, BookOpen, Calculator, AlertTriangle, GraduationCap } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Calculator, AlertTriangle, GraduationCap, FileKey } from 'lucide-react';
 import { Tab } from '../types';
 
 interface SidebarProps {
@@ -11,7 +11,8 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
   const menuItems = [
     { id: Tab.OVERVIEW, label: 'Yol Haritası', icon: LayoutDashboard },
     { id: Tab.COURSE, label: 'Ders Modülleri', icon: BookOpen },
-    { id: Tab.SIMULATOR, label: 'Retention Lab', icon: Calculator },
+    { id: Tab.SIMULATOR, label: 'Retention Planlayıcı', icon: Calculator },
+    { id: Tab.AUDIT, label: 'İmha & Kanıt Labı', icon: FileKey }, // New Item
     { id: Tab.MISTAKES, label: 'Hata Sınavı', icon: AlertTriangle },
   ];
 

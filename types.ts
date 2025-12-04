@@ -2,6 +2,7 @@ export enum Tab {
   OVERVIEW = 'OVERVIEW',
   COURSE = 'COURSE', // Renamed from FRAMEWORK
   SIMULATOR = 'SIMULATOR',
+  AUDIT = 'AUDIT', // New Tab for Deletion Lab
   MISTAKES = 'MISTAKES'
 }
 

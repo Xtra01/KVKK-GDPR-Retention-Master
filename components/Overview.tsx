@@ -2,7 +2,11 @@ import React from 'react';
 import { Shield, Clock, Filter, Trash2, ArrowRight, Play, CheckCircle2 } from 'lucide-react';
 import { COURSE_MODULES } from '../constants';
 
-const Overview: React.FC = () => {
+interface OverviewProps {
+  onStart: () => void;
+}
+
+const Overview: React.FC<OverviewProps> = ({ onStart }) => {
   return (
     <div className="space-y-8 animate-fade-in pb-10">
       <header className="mb-8 flex justify-between items-center">
@@ -12,7 +16,10 @@ const Overview: React.FC = () => {
             Kurumsal veri saklama ve imha süreçlerini uçtan uca öğrenin ve uygulayın.
             </p>
         </div>
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200 flex items-center gap-2">
+        <button 
+            onClick={onStart}
+            className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200 flex items-center gap-2 cursor-pointer"
+        >
             <Play size={20} fill="currentColor" /> Eğitime Başla
         </button>
       </header>
@@ -21,35 +28,36 @@ const Overview: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
          <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white p-6 rounded-xl shadow-lg relative overflow-hidden">
             <div className="relative z-10">
-                <h3 className="text-blue-100 font-medium mb-1">Toplam Modül</h3>
-                <div className="text-4xl font-bold">{COURSE_MODULES.length} Ders</div>
+                <h3 className="text-blue-100 font-medium mb-1">Toplam Müfredat</h3>
+                <div className="text-4xl font-bold">{COURSE_MODULES.length} Modül</div>
                 <div className="mt-4 text-sm bg-white/20 inline-block px-3 py-1 rounded-full">
-                    Yaklaşık 90 Dakika
+                    Kapsamlı Teorik & Pratik Eğitim
                 </div>
             </div>
             <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
          </div>
          
          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-center">
-            <h3 className="text-slate-500 font-medium mb-2">Hedef Yetkinlikler</h3>
+            <h3 className="text-slate-500 font-medium mb-2">Kazanılacak Yetkinlikler</h3>
             <div className="flex flex-wrap gap-2">
                 <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Veri Envanteri</span>
-                <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">İmha Politikası</span>
-                <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Hukuki Dayanak</span>
-                <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Log Yönetimi</span>
+                <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Hukuki Matris</span>
+                <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Retention Schedule</span>
+                <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Güvenli İmha</span>
+                <span className="px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-md font-medium">Denetim/Log</span>
             </div>
          </div>
 
          <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-center relative">
-             <h3 className="text-slate-500 font-medium mb-2">Eğitim İlerlemesi</h3>
+             <h3 className="text-slate-500 font-medium mb-2">Eğitim Durumu</h3>
              <div className="flex items-end gap-2 mb-2">
-                 <span className="text-3xl font-bold text-slate-900">%75</span>
-                 <span className="text-sm text-slate-400 mb-1">tamamlandı</span>
+                 <span className="text-3xl font-bold text-slate-900">%0</span>
+                 <span className="text-sm text-slate-400 mb-1">başlangıç</span>
              </div>
              <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                 <div className="bg-green-500 h-full w-3/4"></div>
+                 <div className="bg-blue-500 h-full w-0"></div>
              </div>
-             <CheckCircle2 className="absolute top-6 right-6 text-green-500 opacity-20 w-12 h-12" />
+             <CheckCircle2 className="absolute top-6 right-6 text-slate-200 w-12 h-12" />
          </div>
       </div>
 
@@ -116,9 +124,9 @@ const Overview: React.FC = () => {
       </div>
       
       {/* Quick Access Grid */}
-      <h2 className="text-xl font-bold text-slate-800 pt-4">Hızlı Erişim</h2>
+      <h2 className="text-xl font-bold text-slate-800 pt-4">Konu Başlıkları</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-blue-300 transition-colors group cursor-pointer">
+        <div onClick={onStart} className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-blue-300 transition-colors group cursor-pointer">
           <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
             <Shield size={24} />
           </div>
@@ -126,7 +134,7 @@ const Overview: React.FC = () => {
           <p className="text-xs text-slate-500">Veri sadece amaç süresince tutulabilir.</p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-indigo-300 transition-colors group cursor-pointer">
+        <div onClick={onStart} className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-indigo-300 transition-colors group cursor-pointer">
           <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
             <Filter size={24} />
           </div>
@@ -134,7 +142,7 @@ const Overview: React.FC = () => {
           <p className="text-xs text-slate-500">Minimum veri ile maksimum iş.</p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-amber-300 transition-colors group cursor-pointer">
+        <div onClick={onStart} className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-amber-300 transition-colors group cursor-pointer">
           <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 mb-4 group-hover:bg-amber-600 group-hover:text-white transition-colors">
             <Clock size={24} />
           </div>
@@ -142,7 +150,7 @@ const Overview: React.FC = () => {
           <p className="text-xs text-slate-500">Ölçülebilir, net tarihler.</p>
         </div>
 
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-red-300 transition-colors group cursor-pointer">
+        <div onClick={onStart} className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-red-300 transition-colors group cursor-pointer">
           <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600 mb-4 group-hover:bg-red-600 group-hover:text-white transition-colors">
             <Trash2 size={24} />
           </div>
