@@ -4,6 +4,9 @@ import Overview from './components/Overview';
 import FrameworkGuide from './components/FrameworkGuide';
 import RetentionSimulator from './components/RetentionSimulator';
 import DeletionAuditLab from './components/DeletionAuditLab';
+import AnonymizationLab from './components/AnonymizationLab';
+import ShadowITLab from './components/ShadowITLab';
+import ConsentCrisisLab from './components/ConsentCrisisLab';
 import MistakesQuiz from './components/MistakesQuiz';
 import { Tab } from './types';
 
@@ -20,6 +23,12 @@ const App: React.FC = () => {
         return <RetentionSimulator />;
       case Tab.AUDIT:
         return <DeletionAuditLab />;
+      case Tab.ANONYM:
+        return <AnonymizationLab />;
+      case Tab.SHADOW:
+        return <ShadowITLab />;
+      case Tab.CONSENT:
+        return <ConsentCrisisLab />;
       case Tab.MISTAKES:
         return <MistakesQuiz />;
       default:

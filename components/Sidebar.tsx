@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutDashboard, BookOpen, Calculator, AlertTriangle, GraduationCap, FileKey } from 'lucide-react';
+import { LayoutDashboard, BookOpen, Calculator, AlertTriangle, GraduationCap, FileKey, VenetianMask, Ghost, MessageSquareWarning } from 'lucide-react';
 import { Tab } from '../types';
 
 interface SidebarProps {
@@ -12,7 +12,10 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
     { id: Tab.OVERVIEW, label: 'Yol Haritası', icon: LayoutDashboard },
     { id: Tab.COURSE, label: 'Ders Modülleri', icon: BookOpen },
     { id: Tab.SIMULATOR, label: 'Retention Planlayıcı', icon: Calculator },
-    { id: Tab.AUDIT, label: 'İmha & Kanıt Labı', icon: FileKey }, // New Item
+    { id: Tab.AUDIT, label: 'İmha & Kanıt Labı', icon: FileKey },
+    { id: Tab.ANONYM, label: 'Anonimleştirme Labı', icon: VenetianMask },
+    { id: Tab.SHADOW, label: 'Gölge Veri Avcısı', icon: Ghost },
+    { id: Tab.CONSENT, label: 'Rıza Krizi Simülatörü', icon: MessageSquareWarning },
     { id: Tab.MISTAKES, label: 'Hata Sınavı', icon: AlertTriangle },
   ];
 
@@ -53,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
           <div className="w-full bg-slate-700 h-2 rounded-full mt-2">
             <div className="bg-green-500 h-2 rounded-full w-3/4"></div>
           </div>
-          <p className="mt-1 text-right text-[10px]">%75 Tamamlandı</p>
+          <p className="mt-1 text-right text-[10px]">%85 Tamamlandı</p>
         </div>
       </div>
     </div>

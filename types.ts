@@ -3,6 +3,9 @@ export enum Tab {
   COURSE = 'COURSE', // Renamed from FRAMEWORK
   SIMULATOR = 'SIMULATOR',
   AUDIT = 'AUDIT', // New Tab for Deletion Lab
+  ANONYM = 'ANONYM', // New Tab for Anonymization Lab
+  SHADOW = 'SHADOW', // New Tab for Shadow IT Lab
+  CONSENT = 'CONSENT', // New Tab for Consent Crisis Lab
   MISTAKES = 'MISTAKES'
 }
 
